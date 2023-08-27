@@ -1,3 +1,4 @@
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     module: {
         rules: [
@@ -11,8 +12,12 @@ module.exports = {
                         plugins: ['@babel/plugin-transform-runtime'] //enables syntax like async await
                     }
                 },
-
             }
-        ]
-    }
+        ],
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './public/index.html'
+        })
+    ]
 }
