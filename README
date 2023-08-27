@@ -1,0 +1,20 @@
+# mandatory requirements
+
+- no sideways communication between microfrontends to keep the MFs framework independent
+
+- communication is allowed between container and remotes
+
+- CSS conflicts should not occur, css should be scoped
+
+- version control (monorepo vs non-monorrepo) shouldnt make differnce
+
+- container should be able to decide which version of MF is needed (latest or any specific)
+
+# deployment considerations
+
+1. independent deployment of each module
+2. location of remoteEntry.js file must be known at build time since the build of container app has the configuration for remote apps
+3. caching issues due to fixed remoteEntry.js
+4. need a CI/CD pipeline to solve above 3 points , that deploys individually and links the build output of remotes on the container
+
+## solution to above could be a monorepo, that watches if any change to any module and does a build ONLY if its changed
