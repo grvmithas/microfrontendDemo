@@ -26,11 +26,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          yarn  # Use 'npm install' if you're using npm
+          npm install  # Use 'npm install' if you're using npm
 
       - name: Build
         run: |
-          yarn build  # Use 'npm run build' if you're using npm
+          npm run build  # Use 'npm run build' if you're using npm
 
       - name: Deploy to AWS S3
         uses: shinyinc/action-aws-cli@v1.2
