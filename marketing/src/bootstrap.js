@@ -5,14 +5,16 @@ import App from './App'
 const mount = (el) => {
     ReactDOM.render(<App />, el)
 }
-
+// If we are in development and in isolation,
+// call mount immediately
 if (process.env.NODE_ENV === 'development') {
-
     const localMktingRoot = document.querySelector('#_marketing-dev-root')
     if (localMktingRoot) {
         mount(localMktingRoot)
     }
 
 }
-
+// We are running through container
+// and we should export the mount function
 export { mount }
+
