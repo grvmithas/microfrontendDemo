@@ -47,6 +47,15 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "us-east-1"
 
+      - name: Debug AWS CLI Command
+        run: |
+          echo "AWS CLI Command: aws s3 sync dist s3://microfrontenddemo/container/latest"
+          aws s3 sync dist s3://microfrontenddemo/container/latest
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "us-east-1" # Change to your region
+
       - name: Cache Invalidation
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/container/latest/index.html"
