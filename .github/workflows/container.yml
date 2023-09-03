@@ -25,14 +25,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Dependencies
-        run: |
-          npm install  # Use 'npm install' if you're using npm
+        run: npm install # Use 'npm install' if you're using npm
 
       - name: Build
-        run: |
-          npm run build  # Use 'npm run build' if you're using npm
-        env:
-          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
+        run: npm run build # Use 'npm run build' if you're using npm
+        # env:
+        # PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       - name: Deploy to AWS S3
         uses: shinyinc/action-aws-cli@v1.2
@@ -41,4 +39,4 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ""
+          AWS_DEFAULT_REGION: "us-east-1"
