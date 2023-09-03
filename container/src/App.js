@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import MarketingApp from "../components/MarketingApp";
+import Header from "../components/Header";
 
 function App(props) {
     return (
         <>
-            <h1>Container App</h1>
-            <hr />
+            <Header />
             < MarketingApp />
         </>
     )
