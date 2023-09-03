@@ -6,6 +6,7 @@ function App(props) {
     return (
         <>
             <Header />
+            <hr />
             < MarketingApp />
         </>
     )
