@@ -30,7 +30,7 @@ jobs:
 
       - name: Install Dependencies in Marketing
         run: |
-          cd marketing  # Change to the marketing directory
+          cd ../marketing  # Change to the marketing directory
           npm install   # Install dependencies in the marketing directory
 
       - name: Build
