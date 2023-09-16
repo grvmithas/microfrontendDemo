@@ -6,7 +6,6 @@ on:
       - master
     paths:
       - "container/**"
-      - "marketing/**"
 
 defaults:
   run:
@@ -37,11 +36,6 @@ jobs:
 
       - name: Install Dependencies in Container
         run: npm install # Install dependencies in the container directory
-
-      - name: Install Dependencies in Marketing
-        run: |
-          cd ../marketing  # Change to the marketing directory
-          npm install   # Install dependencies in the marketing directory
 
       - name: Build
         run: npm run build # Use 'npm run build' if you're using npm

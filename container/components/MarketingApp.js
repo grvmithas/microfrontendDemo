@@ -10,7 +10,7 @@ export default function MarketingApp() {
     }, [])
 
     return (
-        <div ref={marketingRef}>Marketing Prod App</div>
+        <div ref={marketingRef}>Marketing production App</div>
 
     )
 }
