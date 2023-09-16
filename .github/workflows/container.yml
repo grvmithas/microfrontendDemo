@@ -45,8 +45,8 @@ jobs:
 
       - name: Build
         run: npm run build # Use 'npm run build' if you're using npm
-        # env:
-        # PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
+        env:
+          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       - name: Deploy to AWS S3
         uses: shinyinc/action-aws-cli@v1.2
