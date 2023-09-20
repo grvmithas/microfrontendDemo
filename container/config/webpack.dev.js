@@ -9,15 +9,19 @@ const devConfig = {
     devServer: {
         port: 8080,
         historyApiFallback: {
-            index: 'index.html'
+            index: '/index.html'
         }
+    },
+    output: {
+        publicPath: 'http://localhost:8080/'
     },
     plugins: [
         new ModuleFederationPlugin({
             name: 'container',
             filename: 'remoteEntry.js',
             remotes: {
-                marketing: 'marketing@http://localhost:8081/remoteEntry.js'
+                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+                auth: 'auth@http://localhost:8082/remoteEntry.js',
             },
             shared: deps
         })
