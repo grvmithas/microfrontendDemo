@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import MinicartApp from './MinicartApp';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -63,6 +64,13 @@ export default function Header({ signedIn, onSignOut }) {
     }
   };
 
+  const openCartDrawer = () => {
+    const event = new CustomEvent('openCartDrawer');
+    document.dispatchEvent(event);
+  }
+
+
+
   return (
     <React.Fragment>
       <AppBar
@@ -81,17 +89,21 @@ export default function Header({ signedIn, onSignOut }) {
           >
             App
           </Typography>
-          <Button
-            color="primary"
-            variant="outlined"
-            className={classes.link}
-            component={RouterLink}
-            to={signedIn ? '/' : '/auth/signin'}
-            onClick={onClick}
-          >
-            {signedIn ? 'Logout' : 'Login'}
-          </Button>
+          <div style={{ display: 'flex', justifyContent: "space-around", width: "10%" }}>
+            <Button
+              color="primary"
+              variant="outlined"
+              className={classes.link}
+              component={RouterLink}
+              to={signedIn ? '/' : '/auth/signin'}
+              onClick={onClick}
+            >
+              {signedIn ? 'Logout' : 'Login'}
+            </Button>
+            <MinicartApp />
+          </div>
         </Toolbar>
+
       </AppBar>
     </React.Fragment>
   );
